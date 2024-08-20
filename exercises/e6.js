@@ -3,9 +3,17 @@
 // Array example: bankAccounts in /data/data.js
 // getClientWithNoMoney(bankAccounts) => ['Kevin', 'Jon']
 
-export function getClientWithNoMoney(array) {
-  // Your code goes here...
+import { bankAccounts } from "../data/data";
 
+export function getClientWithNoMoney(array) {
+  let brokeClients = [];
+
+  for (const indexKey in array) {
+    if (array[indexKey].balance == 0) {
+      brokeClients.push(array[indexKey].name);
+    }
+  }
+  return brokeClients;
 }
 
 // === TEST YOURSELF ===

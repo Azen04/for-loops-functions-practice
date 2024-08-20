@@ -9,10 +9,12 @@
  * */
 
 export function getAverage(array) {
-  // Your code goes here...
-
+  var sumOfValues = 0;
+  for (var numOfValues = array.length; 0 < array.length; array.shift()) {
+    sumOfValues = sumOfValues + array[0];
+  }
+  return sumOfValues/numOfValues;
 }
-
 
 /** 
  * PART 2
@@ -22,9 +24,18 @@ export function getAverage(array) {
  * */ 
 
 export function getStringSum(str) {
-  // Your code goes here...
+  let integersSums = 0;
+  let typeCheck;
+  for (const stringKey in str) {
+    typeCheck = str[stringKey] * 1
+    
+    if (!isNaN(typeCheck)) {
+    integersSums = typeCheck + integersSums  
+    } 
+    }
+    return integersSums;
+  }
 
-}
 
 
 // === TEST YOURSELF ===
