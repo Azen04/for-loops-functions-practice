@@ -7,18 +7,14 @@
 import { bankAccounts } from "../data/data";
 
 export function getClientWithLeastPositiveBalance(array) {
-  let lowClassClient;
+  let lowClassClient = array[0];
   let bankClient = [];
-  for (const key in array) {
-    for (const element of array) {
-      if (array[key].balance > 0 && array[key].balance < element.balance) {
-        lowClassClient = array[key];
-      } else {
-        console.log('test');
+  for (const user1 of array) {
+      if (user1.balance > 0 && user1.balance < lowClassClient.balance) {
+          lowClassClient = user1;  
       }
-    }
   }
-  if (lowClassClient == undefined) {
+  if (lowClassClient.balance <= 0) {
     return bankClient;
   }
   bankClient.push(lowClassClient);
