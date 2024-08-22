@@ -5,16 +5,11 @@
 // NOTE: You can NOT use the array.reverse() method in your code
 
 export function reverseArray(array) { 
-  const inversedArray = [];
-  
-  for (let numberKey = 1; numberKey <= array.length; numberKey++) {
-
-    inversedArray.push(array[array.length - numberKey]);  
-    
+  const reversedArray = [];
+  for (let i = array.length - 1; reversedArray.length < array.length; i--) {
+    reversedArray.push(array[i]);  
   }
-
-  return inversedArray;
-
+  return reversedArray;
 }
 
 

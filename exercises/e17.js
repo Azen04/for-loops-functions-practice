@@ -6,16 +6,12 @@
 // NOTE: You can NOT use the array.includes() method in your code
 
 export function doesArrayInclude(array, value) {
-let isIncluded;
   for (const arrayValue of array) {
-    if (arrayValue != value) {
-      isIncluded = false;
-    } else {
-      isIncluded = true;
-      return isIncluded;
+      if (arrayValue == value) {
+        return true;
+      } 
     }
-  }
-  return isIncluded
+    return false;
 }
 
 

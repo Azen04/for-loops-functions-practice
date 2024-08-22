@@ -9,11 +9,11 @@
  * */
 
 export function getAverage(array) {
-  var sumOfValues = 0;
-  for (var numOfValues = array.length; 0 < array.length; array.shift()) {
-    sumOfValues = sumOfValues + array[0];
+  let sumOfValues = 0;
+  for (const number of array) {
+    sumOfValues = sumOfValues + number;
   }
-  return sumOfValues/numOfValues;
+  return sumOfValues / array.length;
 }
 
 /** 

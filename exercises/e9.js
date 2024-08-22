@@ -8,10 +8,9 @@ import { bankAccounts } from "../data/data";
 
 export function getClientsWithBalanceOverOneHundred(array) {
   let overOneHundred = [];
-  let greatestBalance;
-  for (const key in array) {
-      if (array[key].balance > 100) {
-      overOneHundred.push(array[key])
+  for (const user of array) {
+      if (user.balance > 100) {
+      overOneHundred.push(user);
       } 
     }
     return overOneHundred;

@@ -8,9 +8,8 @@ import { bankAccounts } from "../data/data";
 
 export function getAllClientNames(array) {
   let clientNames = [];
-
-  for (const index in array) {
-    clientNames.push(array[index].name)
+  for (const user of array) {
+    clientNames.push(user.name);
   }
   return clientNames;
 }

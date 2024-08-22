@@ -7,10 +7,9 @@ import { bankAccounts } from "../data/data";
 
 export function getClientWithNoMoney(array) {
   let brokeClients = [];
-
-  for (const indexKey in array) {
-    if (array[indexKey].balance == 0) {
-      brokeClients.push(array[indexKey].name);
+  for (const user of array) {
+    if (user.balance == 0) {
+      brokeClients.push(user.name);
     }
   }
   return brokeClients;

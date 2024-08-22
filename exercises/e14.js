@@ -7,35 +7,27 @@
 
 export function getClientsWithWrongBalance(array) {
   const wrongBalanceAccounts = [];
-  let deposits;
-  let withdrawals;
-  let depositSums;
-  let withdrawalSums;
-  let sumsDifference;
+  let sumsDifference = 0;
 
-  for (const clientAccount of array) {
-    depositSums = 0;
-    withdrawalSums = 0;
-    sumsDifference = 0;    
-    deposits = clientAccount.deposits;
-    withdrawals = clientAccount.withdrawals;
-    for (const depositKey in deposits) {
-      depositSums = deposits[depositKey] + depositSums
-      console.log(depositSums);
-      
+  for (const user of array) {
+    let depositSums = 0;
+    let withdrawalSums = 0;
+
+    for (const depositKey in user.deposits) {
+      depositSums = user.deposits[depositKey] + depositSums
     }
-    for (const withdrawalKey in withdrawals) {
-      withdrawalSums = withdrawals[withdrawalKey] + withdrawalSums
-      console.log(withdrawalSums);
-      
+    for (const withdrawalKey in user.withdrawals) {
+      withdrawalSums = user.withdrawals[withdrawalKey] + withdrawalSums
     }
+
     if (depositSums >= withdrawalSums) {
       sumsDifference = depositSums - withdrawalSums
     } else if (depositSums <= withdrawalSums) {
       sumsDifference = withdrawalSums - depositSums
     }
-    if (clientAccount.balance !=  sumsDifference) {
-      wrongBalanceAccounts.push(clientAccount)
+    
+    if (user.balance !=  sumsDifference) {
+      wrongBalanceAccounts.push(user)
     }
   }
 return wrongBalanceAccounts

@@ -11,18 +11,14 @@ export function separateNamesWithAFromRest(array) {
   const allNames = [namesWithA, namesWithoutA];
   
   for (const name of array) {
-    
     for (const nameChar in name) {
-
       if (name[nameChar] == 'a') {
         namesWithA.push(name);
         break
       } else if (name[nameChar] != 'a' && name[nameChar] == name[name.length - 1]) {
         namesWithoutA.push(name);
       }
-
     }
-
   }
 return allNames;
 }

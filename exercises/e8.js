@@ -7,19 +7,13 @@
 import { bankAccounts } from "../data/data";
 
 export function getClientWithGreatestBalance(array) {
-  let richClient = [];
-  let greatestBalance;
-  for (const key in array) {
-    for (const element of array) {
-      if (element.balance > array[key].balance) {
-        greatestBalance = element;
-      } else {
-        console.log('test');
-      }
+  let maxBalance = [array[0]];
+  for (const user of array) {
+    if (user.balance > maxBalance[0].balance) {
+      maxBalance[0] = user;
     }
-    richClient.push(greatestBalance);
-    return richClient;
   }
+  return maxBalance;
 }
 
 

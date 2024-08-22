@@ -6,14 +6,19 @@
 import { bankAccounts } from "../data/data";
 
 export function getClientsWithLetterInName(array, letter) {
-  let accountHoldersWithGivenLetter = [];
-  for (const clientAccount of array) {
-  if (clientAccount.name.includes(letter.toUpperCase()) || clientAccount.name.includes(letter)) {
-      accountHoldersWithGivenLetter.push(clientAccount.name);
+  let usersWithLetter = [];
+  for (const user of array) {
+    for (const char of user.name) {
+      if (char.toLowerCase() === letter.toLowerCase()) {
+        usersWithLetter.push(user.name);
+      }
     }
   }
-  return accountHoldersWithGivenLetter;
+  return usersWithLetter;
 }
+// if (clientAccount.name.includes(letter.toUpperCase()) || clientAccount.name.includes(letter)) {
+//     accountHoldersWithGivenLetter.push(clientAccount.name);
+//   }
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-10"

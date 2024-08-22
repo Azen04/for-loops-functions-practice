@@ -10,7 +10,6 @@ export function getClientWithLeastPositiveBalance(array) {
   let lowClassClient;
   let bankClient = [];
   for (const key in array) {
-    
     for (const element of array) {
       if (array[key].balance > 0 && array[key].balance < element.balance) {
         lowClassClient = array[key];

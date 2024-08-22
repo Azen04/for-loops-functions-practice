@@ -10,22 +10,17 @@
 // ]
 
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
-    const accountWithSumsOfLessThanTwoThousand = [];
-    let bankDeposits;
-    let sumOfDeposits;
-
-    for (const clientAccount of array) {
-        bankDeposits = clientAccount.deposits;
-        sumOfDeposits = 0;
-        for (const depositKey in bankDeposits) {
-            sumOfDeposits = bankDeposits[depositKey] + sumOfDeposits;
+    const lessThan2000 = [];
+    for (const user of array) {
+        let sumOfDeposits = 0;
+        for (const depositKey in user.deposits) {
+            sumOfDeposits = user.deposits[depositKey] + sumOfDeposits;
         }
-
-        if (sumOfDeposits < 2000 || bankDeposits == undefined) {
-            accountWithSumsOfLessThanTwoThousand.push(clientAccount);
+        if (sumOfDeposits < 2000 || user.deposits == undefined) {
+            lessThan2000.push(user);
         }        
     }
-    return accountWithSumsOfLessThanTwoThousand;
+    return lessThan2000;
 }
 
 // === TEST YOURSELF ===

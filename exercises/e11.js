@@ -8,12 +8,10 @@ import { bankAccounts } from "../data/data";
 
 export function getAllWithdrawals(array) {
 const withdrawalSums = [];
-let sum = 0;
-  for (const clientAccount of array) {
-    const accountWithdrawal = clientAccount.withdrawals;
-    sum = 0;
-    for (const key in accountWithdrawal) {
-      sum = accountWithdrawal[key] + sum;
+  for (const user of array) {
+    let sum = 0;
+    for (const value in user.withdrawals) {
+      sum = user.withdrawals[value] + sum;
     }
     if (sum > 0) {
       withdrawalSums.push(sum); 
